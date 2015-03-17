@@ -4,7 +4,7 @@ ruleset hello_world {
     description <<
 A first ruleset for the Quickstart
 >>
-    author "Christian Carnley"
+    author "Christian"
     logging on
     sharing on
     provides hello
