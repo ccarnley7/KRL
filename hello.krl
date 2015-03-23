@@ -26,7 +26,7 @@ The Echo Server
   rule message is active {
     select when echo message
     send_directive("say") with
-    somthing = event::attr("input");
+    somthing = event:attr("input");
   }
  
 }
