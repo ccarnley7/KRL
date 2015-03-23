@@ -25,8 +25,11 @@ The Echo Server
 
   rule message is active {
     select when echo message
+    pre {
+          foo = event:attr("input");
+        }
     send_directive("say") with
-    somthing = event:attr("input");
+    somthing = foo;
   }
  
 }
