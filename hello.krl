@@ -1,8 +1,8 @@
-ruleset hello_world {
+ruleset echo {
   meta {
-    name "Hello World"
+    name "Echo"
     description <<
-A first ruleset for the Quickstart
+The Echo Server
 >>
     author "Christian"
     logging on
@@ -17,10 +17,16 @@ A first ruleset for the Quickstart
     };
  
   }
-  rule hello_world is active {
+  rule hello is active {
     select when echo hello
     send_directive("say") with
       something = "Hello World";
+  }
+
+  rule message is active {
+    select when echo message
+    send_directive("say") with
+    somthing = event::attr("input");
   }
  
 }
