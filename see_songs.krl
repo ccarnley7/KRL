@@ -36,6 +36,6 @@ The see songs Server
   rule test is active {
     select when explicit found_hymn song (".*") setting(m)
     send_directive("sing") with
-      song = m;
+      me = m;
   }
 }
