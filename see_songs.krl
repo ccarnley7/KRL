@@ -29,7 +29,13 @@ The see songs Server
     select when explicit sung song (".*god.*/i") setting(m)
     always {
       raise explicit event found_hymn
-      with song = m 
+      with song = m; 
     }
+  }
+
+  rule test is active {
+    select when explicit found_hymn song (".*") setting(m)
+    send_directive("sing") with
+      song = m;
   }
 }
