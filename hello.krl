@@ -10,7 +10,13 @@ The Echo Server
     provides hello
  
   }
-
+  global {
+    hello = function(obj) {
+      msg = "Hello " + obj
+      msg
+    };
+ 
+  }
   rule hello_world is active {
   select when echo hello
   send_directive("say") with
