@@ -15,9 +15,9 @@ The see songs Server
     };
  
   }
-rule songs is active {
-  select when echo message input "(.*)" setting(m)
-  send_directive("sing") with
-    song = m;
-}
+  rule songs is active {
+    select when echo message msg_type "(song)" setting(m)
+    send_directive("sing") with
+      song = m;
+  }
 }
