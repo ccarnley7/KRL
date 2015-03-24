@@ -2,7 +2,7 @@ ruleset see_songs {
   meta {
     name "see_songs"
     description <<
-The Echo Server
+The see songs Server
 >>
     author "Christian"
     logging on
