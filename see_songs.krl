@@ -32,10 +32,4 @@ The see songs Server
       with song = m; 
     }
   }
-
-  rule test is active {
-    select when explicit found_hymn song (".*") setting(m)
-    send_directive("sing") with
-      me = m;
-  }
 }
