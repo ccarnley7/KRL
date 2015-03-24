@@ -1,31 +1,37 @@
 ruleset echo {
-  meta {
-    name "Echo"
+  meta {  
+    name "echo"
     description <<
-The Echo Server
->>
-    author "Christian"
-    logging on
-    sharing on
-    provides hello
- 
+    echo rule sets.
+    >>
+    author "adam burdett"
+    logging off
   }
-  global {
-    hello = function(obj) {
-      msg = "Hello " + obj
-      msg
-    };
- 
+
+  rule hello{
+    select when echo hello
+
+    {
+      send_directive("say") with something = "Hello World";
+    }
+
   }
-  rule hello_world is active {
-  select when echo hello
-  send_directive("say") with
-    something = "Hello World";
-}
-   
-rule echo is active {
-  select when echo message input "(.*)" setting(m)
-  send_directive("say") with
-    something = m;
-}
+  rule message{
+    select when echo message
+    pre {
+          foo = event:attr("input");
+        }
+    {
+      send_directive("say") with something = foo;
+    }
+
+  }
+
+  rule displayMEWOrking{
+    select when pageview ".*" {
+      notify("version" ,".1");
+
+    }
+
+  }
 }
